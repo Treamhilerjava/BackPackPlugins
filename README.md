@@ -2,120 +2,131 @@
 
 # 🎒 BackpackPlugin
 
-**A fully configurable tiered backpack plugin for Paper 1.21**
+**Tiered backpacks with upgrades, NPC shop, and unlimited custom types**
 
-[![Modrinth](https://img.shields.io/badge/Modrinth-BackpackPlugin-00AF5C?style=for-the-badge&logo=modrinth)](https://modrinth.com/user/Treamhiler)
-[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/tFXhkPVpxG)
-[![Paper](https://img.shields.io/badge/Paper-1.21.x-F96854?style=for-the-badge)](https://papermc.io)
-[![Java](https://img.shields.io/badge/Java-21+-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net)
-
-*6 built-in tiers · Unlimited custom types · FancyNPCs shop · NPC merchant · ItemsAdder support · No resource pack required*
+[![Modrinth](https://img.shields.io/modrinth/v/backpackplugin?label=Modrinth&logo=modrinth&color=1bd96a)](https://modrinth.com/plugin/backpackplugin)
+[![Discord](https://img.shields.io/discord/1234567890?label=Discord&logo=discord&color=5865F2)](https://discord.gg/tFXhkPVpxG)
+[![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk)](https://adoptium.net/)
+[![Paper](https://img.shields.io/badge/Paper-1.21.x-white?logo=spigotmc)](https://papermc.io/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 </div>
 
 ---
 
+A fully configurable tiered backpack plugin for Paper 1.21. Players purchase and upgrade backpacks through 6 built-in tiers, each with a unique custom head, auto-pickup, sort button, armor bonus, and NPC shop. Add unlimited custom types with a single command — no resource pack required.
+
+---
+
 ## ✨ Features
 
-| Feature | Details |
-|---|---|
-| 🎒 Tiered backpacks | 6 built-in tiers from Worn Satchel to Ender Backpack |
-| ♾️ Unlimited custom types | Add any backpack via `backpacks.yml` or `/backpack create` wizard |
-| 🪄 In-game wizard | Step-by-step chat wizard to create new types without editing files |
-| 🗄️ Paginated GUI | Up to 54 rows of storage across 9 pages |
-| 🧲 Auto-pickup | Toggle per backpack — items go straight into the bag |
-| 🛍️ NPC Shop | FancyNPCs merchant for buying and upgrading backpacks |
-| 🔼 Upgrade system | Storage rows, auto-pickup unlock, and armor points per tier |
-| 🛡️ Chestplate equip | Wear a backpack for bonus armor — works in mainhand/offhand/chest slot |
-| ✏️ Rename system | Rename with colour codes, costs configurable XP levels |
-| 📦 ItemsAdder support | Use custom items as the backpack visual |
-| 💀 Death behavior | Configurable: `DROP`, `KEEP`, or `DELETE` |
-| 🪨 Bedrock support | Full Geyser compatibility via `/bp` command |
+- **6 built-in tiers** — Worn Satchel → Leather → Iron → Gold → Diamond → Ender
+- **Unlimited custom types** — add any backpack via `backpacks.yml` or the in-game 9-step wizard
+- **Custom player head** per tier — no resource pack needed
+- **Equippable in chestplate slot** — grants armor points; Shift+Right-click to equip/unequip
+- Works in **mainhand, offhand, and chestplate slot**
+- **Auto-pickup** toggle — items go directly into the bag
+- **Sort button** — sorts contents alphabetically by item type
+- **Rename system** — configurable XP cost, supports colour codes
+- **FancyNPCs merchant** — buy and upgrade from in-world NPCs
+- **Upgrade system** — storage rows, auto-pickup unlock, armor points — each with its own cost curve
+- **Paginated GUI** — up to 54 rows of storage across 9 pages
+- **NBT storage** — contents saved on the item itself; survive restarts, drops, and transfers
+- **Death behavior** — configurable: `DROP`, `KEEP`, or `DELETE`
+- **ItemsAdder support** — use any custom item as the visual; falls back to skull if unavailable
+- **Bedrock support** via Geyser — `/bp` opens your equipped backpack
+
+---
+
+## 🎒 Built-in Tiers
+
+| Tier | Initial Rows | Max Rows | Price |
+|---|---|---|---|
+| Worn Satchel | 1 | 3 | $500 |
+| Leather Backpack | 2 | 5 | $2,000 |
+| Iron Backpack | 3 | 8 | $5,000 |
+| Gold Backpack | 4 | 12 | $12,000 |
+| Diamond Backpack | 5 | 18 | $30,000 |
+| Ender Backpack | 6 | 24 | $75,000 |
+
+> All values are configurable in `backpacks.yml`.
 
 ---
 
 ## 📋 Requirements
 
-- [Paper](https://papermc.io) 1.21.x
-- Java 21+
-- [Vault](https://www.spigotmc.org/resources/vault.34315/) + any economy plugin
-- [FancyNPCs](https://modrinth.com/plugin/fancynpcs) 2.9+
-- [ItemsAdder](https://www.spigotmc.org/resources/itemsadder.73355/) 3.6+ *(optional)*
-- [Geyser](https://geysermc.org) *(optional, Bedrock support)*
+| Requirement | Version | Notes |
+|---|---|---|
+| Paper | 1.21.x | Spigot not supported |
+| Java | 21+ | |
+| Vault | Any | + an economy plugin |
+| FancyNPCs | 2.9+ | Optional — for merchant NPCs |
+| ItemsAdder | 3.6+ | Optional — for custom visuals |
+| Geyser | Any | Optional — Bedrock support |
 
 ---
 
 ## 🚀 Installation
 
 1. Drop `BackpackPlugin.jar` into your `plugins/` folder
-2. Install Vault, FancyNPCs, and an economy plugin
-3. Start the server — `config.yml` and `backpacks.yml` are auto-generated
-4. Edit `plugins/BackpackPlugin/backpacks.yml` to customise tiers
-5. Run `/backpack reload`
+2. Ensure **Vault** + an economy plugin are installed
+3. Restart — `config.yml` and `backpacks.yml` are generated automatically
+4. Optionally install **FancyNPCs** and/or **ItemsAdder**
+5. Run `/backpack reload` after any config changes
 
 ---
 
-## 🎒 Built-in Tiers
+## 🎮 Usage
 
-| Tier | Starting Rows | Max Rows | Shop Price | Armor Base |
-|---|---|---|---|---|
-| Worn Satchel | 1 | 3 | $500 | 1 |
-| Leather Backpack | 2 | 5 | $2,000 | 1 |
-| Iron Backpack | 3 | 8 | $5,000 | 2 |
-| Gold Backpack | 4 | 12 | $12,000 | 2 |
-| Diamond Backpack | 5 | 18 | $30,000 | 3 |
-| Ender Backpack | 6 | 24 | $75,000 | 4 |
+### Opening a Backpack
 
-> All values are fully configurable in `backpacks.yml`.
-
----
-
-## 🛠️ Commands
-
-| Command | Permission | Description |
+| Method | Java | Bedrock |
 |---|---|---|
-| `/bp` | `backpack.use` | Open your backpack |
-| `/backpack shop` | `backpack.use` | Open the NPC shop manually |
-| `/backpack give <player> <id>` | `backpack.admin` | Give a backpack to a player |
-| `/backpack create <id>` | `backpack.admin` | Start in-game creation wizard |
-| `/backpack bpedit <id> <field> <value>` | `backpack.admin` | Edit a backpack type live |
-| `/backpack bpdelete <id>` | `backpack.admin` | Delete a backpack type |
-| `/backpack list` | `backpack.admin` | List all loaded backpack IDs |
-| `/backpack reload` | `backpack.admin` | Reload configs |
-| `/backpack edit <player> <id> <field> <value>` | `backpack.admin` | Edit a player's upgrades |
-| `/backpack spawnnpc <n>` | `backpack.admin` | Spawn a merchant NPC |
-| `/backpack removenpc <n>` | `backpack.admin` | Remove a merchant NPC |
+| Mainhand | Right-click | Long-press |
+| Offhand | Right-click | Long-press |
+| Equipped (chest slot) | `/bp` | `/bp` |
+
+### Equipping
+Hold the backpack → **Shift + Right-click** to equip to chestplate slot. Repeat to unequip.
+
+### GUI Controls
+
+| Button | Function |
+|---|---|
+| Sort | Alphabetically sorts contents |
+| Auto-Pickup | Toggles ON/OFF |
+| Rename | Costs XP levels (configurable) |
+| Prev / Next | Navigate storage pages |
 
 ---
 
-## 🔑 Permissions
+## 🛒 NPC Shop
 
-| Permission | Default | Description |
-|---|---|---|
-| `backpack.use` | Everyone | Open and use backpacks |
-| `backpack.autopickup` | Everyone | Use auto-pickup feature |
-| `backpack.bypass.blacklist` | `false` | Bypass autopickup item blacklist |
-| `backpack.admin` | OP | All admin commands |
+```
+/backpack spawnnpc <name>
+```
+
+Spawns a merchant NPC. Players use the **Buy** tab to purchase tiers and the **Upgrade** tab to upgrade their existing backpack. The shop auto-populates from `backpacks.yml` — no extra setup after adding new types.
 
 ---
 
 ## ➕ Adding Custom Backpacks
 
-### Option 1 — In-game wizard
+**In-game wizard (recommended):**
 ```
 /backpack create mythic_backpack
 ```
-Answer 9 chat prompts. Clickable buttons appear at the end to instantly give yourself the new backpack or edit any field.
+A 9-step chat wizard prompts for display name, skull texture, ItemsAdder ID, initial rows, max rows, armor base, and upgrade costs. Clickable `[Give to yourself]` and `[Edit fields]` buttons appear on completion.
 
-### Option 2 — Edit `backpacks.yml` directly
-
+**Direct YAML edit:**
 ```yaml
+# backpacks.yml
 backpacks:
   mythic_backpack:
     display:        "&d&lMythic Backpack"
     price:          150000.0
-    skull_texture:  "eyJ..."      # Base64 from minecraft-heads.com
-    itemsadder_id:  ""            # e.g. mypack:mythic_bag
+    skull_texture:  "eyJ..."   # Base64 from minecraft-heads.com
+    itemsadder_id:  ""         # e.g. mynamespace:my_item — leave blank for skull
     initial_rows:   6
     max_rows:       36
     armor_base:     5
@@ -136,35 +147,46 @@ backpacks:
         base_cost:           15000.0
         cost_multiplier:     1.6
 ```
-
-Then run `/backpack reload`. The new type appears in the NPC shop instantly.
+Run `/backpack reload` to hot-load the new type.
 
 ---
 
-## ⚙️ Configuration Files
+## 💻 Commands & Permissions
 
-### `config.yml` — GUI, sounds, messages, lore template
+| Command | Permission | Description |
+|---|---|---|
+| `/bp` | `backpack.use` | Open your equipped backpack |
+| `/backpack shop` | `backpack.use` | Open the NPC shop manually |
+| `/backpack give <player> <id>` | `backpack.admin` | Give a backpack to a player |
+| `/backpack create <id>` | `backpack.admin` | Start the creation wizard |
+| `/backpack cancel` | `backpack.admin` | Abort an active wizard |
+| `/backpack bpedit <id> <field> <value>` | `backpack.admin` | Edit a backpack type live |
+| `/backpack bpdelete <id>` | `backpack.admin` | Delete a backpack type |
+| `/backpack list` | `backpack.admin` | List all loaded backpack IDs |
+| `/backpack reload` | `backpack.admin` | Reload config.yml and backpacks.yml |
+| `/backpack spawnnpc <name>` | `backpack.admin` | Spawn a merchant NPC |
+| `/backpack removenpc <name>` | `backpack.admin` | Remove a merchant NPC |
 
-```yaml
-death:
-  behavior: DROP    # DROP | KEEP | DELETE
+| Permission | Default |
+|---|---|
+| `backpack.use` | Everyone |
+| `backpack.autopickup` | Everyone |
+| `backpack.bypass.blacklist` | false |
+| `backpack.admin` | OP |
 
-autopickup:
-  default: false
-  blacklist: []
+---
 
-lore:
-  - " &7Type&f: {type}"
-  - " &7Storage&f: &a{slots_used}&7/&f{slots_total} &7slots &8({rows} rows)"
-  - " &7Level&f: {level}&7/&f{max_level}  &7Armor&f: +{armor}"
-  - " &7Auto-pickup&f: {autopickup}"
-```
+## 🏷️ Lore Placeholders
 
-**Lore placeholders:** `{name}` `{type}` `{slots_used}` `{slots_total}` `{rows}` `{autopickup}` `{level}` `{max_level}` `{armor}`
-
-### `backpacks.yml` — All backpack type definitions
-
-This is the only file you need to edit to add, remove, or change backpack types. See the section above for a full example.
+| Placeholder | Value |
+|---|---|
+| `{name}` | Custom name or default display name |
+| `{type}` | Original type ID |
+| `{slots_used}` / `{slots_total}` | Storage fill |
+| `{rows}` | Current row count |
+| `{autopickup}` | On / Off |
+| `{level}` / `{max_level}` | Upgrade progress |
+| `{armor}` | Current armor points |
 
 ---
 
@@ -172,32 +194,34 @@ This is the only file you need to edit to add, remove, or change backpack types.
 
 ```
 src/main/java/org/backpack/
-├── BackpackPlugin.java          # Main plugin class
-├── BackpackRegistry.java        # Loads & manages backpacks.yml
-├── BackpackCreationWizard.java  # In-game chat wizard
-├── BackpackCommand.java         # All /backpack subcommands
-├── BackpackItem.java            # Item creation & PDC storage
-├── BackpackGUI.java             # Paginated inventory GUI
-├── BackpackManager.java         # Open/close/save logic
-├── BackpackListener.java        # Inventory & player events
-├── NpcManager.java              # FancyNPCs merchant creation
-├── NpcShopGUI.java              # Shop GUI (buy + upgrade pages)
-├── NpcShopListener.java         # Shop click handling
-├── UpgradeData.java             # Upgrade state record
-├── ContentsSerializer.java      # Item serialization to NBT
-├── Sounds.java                  # Sound helpers
-└── BpCommand.java               # /bp shortcut command
-
-src/main/resources/
-├── plugin.yml
-├── config.yml
-└── backpacks.yml
+├── BackpackPlugin.java          # Plugin entry point
+├── BackpackRegistry.java        # Loads and manages backpacks.yml
+├── BackpackItem.java            # Item creation, NBT, equip/unequip
+├── BackpackManager.java         # Player data and backpack resolution
+├── BackpackGUI.java             # Storage GUI and control buttons
+├── BackpackListener.java        # Interact, equip, autopickup, rename events
+├── BackpackCommand.java         # /backpack command handler
+├── BackpackCreationWizard.java  # In-game 9-step creation wizard
+├── BpCommand.java               # /bp command (Bedrock-friendly open)
+├── NpcShopGUI.java              # Buy and Upgrade shop GUI
+├── NpcShopListener.java         # Shop click handling and transactions
+├── UpgradeData.java             # Per-player upgrade state model
+├── ContentsSerializer.java      # NBT contents serialization
+└── Sounds.java                  # Sound helper
 ```
 
 ---
 
-## 🙏 Credits
+## 📜 Changelog
 
-Developed by **Treamhiler**
+See [CHANGELOG.md](CHANGELOG.md)
 
-[modrinth.com/user/Treamhiler](https://modrinth.com/user/Treamhiler) • [discord.gg/tFXhkPVpxG](https://discord.gg/tFXhkPVpxG) • [github.com/Treamhilerjava](https://github.com/Treamhilerjava)
+---
+
+<div align="center">
+
+💬 **[Discord](https://discord.gg/tFXhkPVpxG)** · 🔗 **[Modrinth](https://modrinth.com/user/Treamhiler)** · 🐙 **[GitHub](https://github.com/Treamhilerjava)**
+
+Made by **Treamhiler**
+
+</div>
